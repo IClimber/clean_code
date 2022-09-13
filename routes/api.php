@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('articles')->group(function () {
     Route::get('/', [ArticleController::class, 'index']);
     Route::post('/', [ArticleController::class, 'store']);
+    Route::delete('/{article}', [ArticleController::class, 'destroy']);
 
     Route::prefix('{article}/comments')->group(function () {
         Route::get('/', [CommentController::class, 'index']);
