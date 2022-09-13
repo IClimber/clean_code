@@ -10,8 +10,10 @@ namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -24,6 +26,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon $published_at
  * @property-read Carbon|null $created_at
  * @property-read Carbon|null $updated_at
+ * @property-read Collection|Comment[] $comments
+ * @property-read int|null $comments_count
  * @method static Builder|Article newModelQuery()
  * @method static Builder|Article newQuery()
  * @method static Builder|Article query()
@@ -63,4 +67,11 @@ class Article extends Model
         'body' => 'string',
         'published_at' => 'datetime',
     ];
+
+    /* ************************ RELATIONS ************************ */
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
