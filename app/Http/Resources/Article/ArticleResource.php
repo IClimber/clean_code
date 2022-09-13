@@ -26,6 +26,7 @@ final class ArticleResource extends JsonResource
         $article = $this->resource;
 
         return [
+            'id' => $article->id,
             'author' => $article->author,
             'title' => $article->title,
             'body' => $article->body,
