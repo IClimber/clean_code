@@ -15,7 +15,7 @@ use App\Http\Resources\Article\ArticleResource;
 use App\Models\Article;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class ArticleController extends ApiBaseController
+final class ArticleController extends ApiBaseController
 {
     public function index(IndexArticleRequest $request): AnonymousResourceCollection
     {
