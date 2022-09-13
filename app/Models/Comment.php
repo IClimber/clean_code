@@ -68,4 +68,11 @@ class Comment extends Model
     {
         return $this->belongsTo(Article::class);
     }
+
+    /* ************************ METHODS ************************ */
+
+    public function setArticle(Article $article): void
+    {
+        $this->article()->associate($article);
+    }
 }
